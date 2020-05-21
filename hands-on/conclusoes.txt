@@ -1,0 +1,31 @@
+
+***************************************************************************************
+*
+*Este arquivo tem algumas perguntas que me fiz durante os testes do CloudFormation:
+*
+***************************************************************************************
+
+1 - HIPOTESE: Criar dois script com nomes difentes, mas no conteudo terem o mesmo nome de Security Group
+PERGUNTA: O que acontece, reusa? Gera conflito?
+RESPOSTA: Não. neste caso, serao criados 2 SG diferentes, pois no nome do SG eh inserido o nome do script, que neste caso eram dois nomes diferentes (Script-0002-EC2InstanceSG-Novo.yaml e Script-0003-EC2InstanceSG-Existente.yaml)
+
+E assim, sao criados dois ids diferentes para os SGs
+ 
+
+1- HIPOTESE: Ao remover a stack, todos os recursos sao apagado
+PERGUNTA: Recursos como o EC2, SG e S3 serao removidos?
+RESPOSTA: As instancias EC2 serao paradas e terminadas. Ao final da remocao, as stacks serao removidas.
+Entretando, os SG criados nao sao removidos. Precisei fazer na mao.
+O mesmo aconteceu com os objetos criados num unico bucket S3. Removi os objetos manualmente
+
+
+
+
+***************************************************************************************
+*
+*AFIRMACOES
+*
+****************************************************************************************
+1 - Eh criado um Bucket durante o processo da primeira stack. Depois nas demais stacks esse bucket eh reutilizado. Dentro do bucket, os sripts sao gerados como objetos
+
+2 - Apos remover a stack, os objetos e buscket nao sao removidos automaticamente, igual ao recurso EC2

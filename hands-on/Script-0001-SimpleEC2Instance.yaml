@@ -1,0 +1,14 @@
+Resources:
+  #Template:Criacao de instancia EC2 simples
+  ScriptCFEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-085925f297f89fce1 # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type in N.Virginia
+      Tags:
+        - Key: Author
+          Value: Alexandre Sueiro
+        - Key: Project
+          Value: EstudoAWS - CloudFormation
+        - Key: Versao
+          Value: Instance - 00
