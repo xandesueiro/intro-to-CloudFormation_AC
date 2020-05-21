@@ -1,0 +1,12 @@
+Resources:
+  #Template criado para primero Stack CloudFormation na AWS
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-085925f297f89fce1 # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type in N.Virginia
+      Tags:
+        - Key: Nome
+          Value: Alexandre Sueiro
+        - Key: Project
+          Value: EstudoAWS
